@@ -1,0 +1,170 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(63, 94, 251);
+  background: radial-gradient(
+    circle,
+    rgba(63, 94, 251, 1) 0%,
+    rgba(252, 70, 107, 1) 100%
+  );
+}
+
+.cart {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.todo {
+  padding: 10px 0;
+}
+form {
+  font-size: 25px;
+}
+fieldset {
+  color: black;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+#todo-input {
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 20px;
+  background: rgba(255, 255, 255, 0.25);
+  box-sizing: border-box;
+}
+#todo-input:focus {
+  border: 2px solid lightgreen;
+  background-color: white;
+}
+select {
+  outline: none;
+  width: 180px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.btn {
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  background: rgba(255, 255, 255, 0.25);
+}
+.btn:hover {
+  background-color: white;
+}
+.todo-list {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 10px;
+  background-color: white;
+  border-radius: 5px;
+  font-size: 25px;
+  padding: 5px;
+}
+#todo-list-input {
+  font-size: 20px;
+  outline: none;
+  border: 3px solid orange;
+  border-radius: 5px;
+}
+
+.complete {
+  background-color: rgb(188, 252, 172);
+}
+.complete span.remove,
+.complete span.edit {
+  visibility: hidden;
+}
+
+.todo-list span {
+  margin-right: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-tittle {
+  flex: 1;
+  padding: 0 5px;
+  margin: 0 5px;
+}
+
+.fa-trash-alt {
+  color: rgb(248, 35, 35);
+}
+
+.fa-edit {
+  color: orange;
+}
+.fa-circle,
+.fa-check-circle,
+.fa-save {
+  color: green;
+}
+
+.modal {
+  height: 100vh;
+  width: 100vw;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: rgba(250, 250, 250, 0.1);
+}
+.modal-action {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 20%;
+  background: rgba(119, 140, 245, 0.753);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10.9px);
+  transition: all 0.7s ease-out;
+  transform: translateY(-100vh);
+}
+.modal-action p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+.buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.delete,
+.cancel {
+  width: 40%;
+  margin-left: 10px;
+}
