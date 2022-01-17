@@ -168,3 +168,37 @@ select {
   width: 40%;
   margin-left: 10px;
 }
+@media screen and (max-width: 400px) {
+  .cart {
+    width: 90%;
+  }
+  .todo {
+    padding: 2px 0;
+    width: 90%;
+  }
+  form {
+    font-size: 14px;
+  }
+  label {
+    display: none;
+  }
+  #todo-input {
+    font-size: 14px;
+    width: 100px;
+  }
+  select {
+    font-size: 14px;
+    padding: 2px;
+    width: 100px;
+  }
+  .btn {
+    font-size: 14px;
+    padding: 4px 6px;
+  }
+  .todo-list {
+    font-size: 15px;
+  }
+  .modal-action p {
+    font-size: 14px;
+  }
+}
