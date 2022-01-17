@@ -8,6 +8,7 @@ const modalAction = document.querySelector(".modal-action");
 addBtn.addEventListener("click", todoadd);
 filter.addEventListener("click", filtertodo);
 modalAction.addEventListener("click", modalaction);
+document.addEventListener("DOMContentLoaded", getlocaltodolist);
 
 function todoadd(e) {
   e.preventDefault();
@@ -20,6 +21,7 @@ function todoadd(e) {
   <span class="check"><i class="far fa-circle"></i></span>`;
   todoDiv.innerHTML = content;
   todoList.appendChild(todoDiv);
+  savelocaltodolist(todoinput.value);
   todoinput.value = "";
 }
 
@@ -50,6 +52,7 @@ function modalaction(e) {
   if (classList[0] === "delete") {
     modalAction.style.transform = "translateY(-100vh)";
     modal.style.visibility = "hidden";
+    removelocaltodolist(todo);
     todo.remove();
   } else if (classList[0] === "cancel") {
     todo.classList.remove("removing");
@@ -102,4 +105,41 @@ function filtertodo(e) {
       todo.style.display = "flex";
     });
   }
+}
+
+function savelocaltodolist(todo) {
+  let savedtodo = localStorage.getItem("todos")
+    ? JSON.parse(localStorage.getItem("todos"))
+    : [];
+  savedtodo.push(todo);
+  localStorage.setItem("todos", JSON.stringify(savedtodo));
+}
+
+function getlocaltodolist() {
+  let savedtodo = localStorage.getItem("todos")
+    ? JSON.parse(localStorage.getItem("todos"))
+    : [];
+  console.log(savedtodo);
+  savedtodo.forEach((todos) => {
+    const todoDiv = document.createElement("div");
+    todoDiv.classList.add("todo-list");
+    todoDiv.addEventListener("click", check);
+    const content = `<li class="todo-tittle">${todos}</li>
+  <span class="edit"><i class="far fa-edit"></i></span>
+  <span class="remove"><i class="far fa-trash-alt"></i></span>
+  <span class="check"><i class="far fa-circle"></i></span>`;
+    todoDiv.innerHTML = content;
+    todoList.appendChild(todoDiv);
+  });
+}
+
+function removelocaltodolist(todo) {
+  let savedtodo = localStorage.getItem("todos")
+    ? JSON.parse(localStorage.getItem("todos"))
+    : [];
+  const filtertodolist = savedtodo.filter((t) => {
+    return t != todo.children[0].innerHTML;
+  });
+  console.log(filtertodolist);
+  localStorage.setItem("todos", JSON.stringify(filtertodolist));
 }
